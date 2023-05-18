@@ -1,0 +1,32 @@
+version: "1.0"
+services:
+    db:
+        image: mysql:5.7
+        restart: always
+        environment:
+            MYSQL_ROOT_PASSWORD: Passw0rd@
+            MYSQL_DATABASE: dop_db
+        ports:
+            - "3306:3306"
+        volumes:
+            - ./mysql:/var/lib/mysql
+    frontend:
+        container_name: client
+        build:
+            context: ./dopsite-frontend
+            dockerfile: Dockerfile
+        image: react
+        ports:
+            - "3000:3000"
+        volumes:
+            - ./dopsite-frontend:/app
+    backend:
+        container_name: backend
+        build:
+            context: ./dopsite-backend
+            dockerfile: Dockerfile
+        image: server
+        ports:
+            - "8888:8888"
+        volumes:
+            - ./dopsite-backend:/app

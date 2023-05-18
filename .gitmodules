@@ -1,0 +1,6 @@
+[submodule "dopsite-backend"]
+	path = dopsite-backend
+	url = https://github.com/WebDev8919/dopsite-backend
+[submodule "dopsite-frontend"]
+	path = dopsite-frontend
+	url = https://github.com/WebDev8919/dopsite-frontend
